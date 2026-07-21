@@ -4,9 +4,9 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Adzikir Prediction</title>
+<title>Adzikir Prediction AI</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -16,49 +16,79 @@
 
 <div class="container">
 
+<div class="logo">
+🧠
+</div>
+
 <h1>ADZIKIR PREDICTION</h1>
 
 <p class="subtitle">
-Smart Prediction Engine
+AI SMART PATTERN ENGINE
 </p>
 
 <textarea
 id="dataset"
-placeholder="Paste hasil draw di sini...">
+placeholder="Paste hasil draw disini...">
 </textarea>
 
 <select id="modePrediction">
-    <option value="original">Original</option>
-    <option value="mirror">Mirror</option>
-    <option value="both">Original + Mirror</option>
+
+<option value="original">
+Original
+</option>
+
+<option value="mirror">
+Mirror
+</option>
+
+<option value="both">
+Original + Mirror
+</option>
+
 </select>
 
 <button id="analyzeBtn">
-    🔍 ANALYZE
+🔍 ANALYZE
 </button>
 
+<div class="progress">
+
+<div
+id="progressBar"
+class="progressBar">
+</div>
+
+</div>
+
+<div class="buttonGrid">
+
 <button id="copyBtn">
-📋 Copy Hasil
+📋 HASIL
 </button>
 
 <button id="copybbfs">
-📋 Copy BBFS
+📋 BBFS
 </button>
 
 <button id="copy2d">
-📋 Copy 2D
+📋 2D
 </button>
+
 <button id="copy3d">
-📋 Copy 3D
+📋 3D
 </button>
 
 <button id="copy4d">
-📋 Copy 4D
+📋 4D
 </button>
+
+</div>
 
 <div class="card">
 
-<h2>📊 HASIL ANALISIS</h2>
+<h2>
+📊 HASIL ANALISIS
+</h2>
 
 <div id="result">
 
@@ -68,18 +98,51 @@ Belum ada analisis.
 
 </div>
 
+<div class="card">
+
+<h2>
+📈 STATISTIK
+</h2>
+
+<div id="statistik">
+
+HOT : -
+
+<br>
+
+COLD : -
+
+<br>
+
+BBFS : -
+
+<br>
+
+2D : -
+
+<br>
+
+3D : -
+
+<br>
+
+4D : -
+
+</div>
+
+</div>
+
 <footer>
 
-© Cici
+Powered by
+<b>Adzikir Prediction AI</b>
 
 </footer>
 
 </div>
 
 <script src="parser.js"></script>
-<script src="generator.js"></script>
 <script src="script.js"></script>
 
 </body>
-
 </html>
