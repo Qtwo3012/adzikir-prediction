@@ -46,15 +46,6 @@ function analyze(){
 
     const result =
         document.getElementById("result");
-	function analyze(){
-
-    const text = document
-        .getElementById("dataset")
-        .value
-        .trim();
-
-    const result =
-        document.getElementById("result");
 
     // ===== PROGRESS BAR =====
     let p = 0;
