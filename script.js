@@ -46,7 +46,37 @@ function analyze(){
 
     const result =
         document.getElementById("result");
-        result.innerHTML = `
+	function analyze(){
+
+    const text = document
+        .getElementById("dataset")
+        .value
+        .trim();
+
+    const result =
+        document.getElementById("result");
+
+    // ===== PROGRESS BAR =====
+    let p = 0;
+
+    let timer = setInterval(function(){
+
+        p += 5;
+
+        const bar = document.getElementById("progressBar");
+
+        if(bar){
+            bar.style.width = p + "%";
+        }
+
+        if(p >= 100){
+            clearInterval(timer);
+        }
+
+    },40);
+
+    result.innerHTML = `
+        
 ⏳ Sedang menganalisa...
 
 Mohon tunggu...
