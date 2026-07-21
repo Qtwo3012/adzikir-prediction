@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Adzikir Prediction</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>ADZIKIR PREDICTION</h1>
+
+<p class="subtitle">
+Smart Prediction Engine
+</p>
+
+<textarea
+id="dataset"
+placeholder="Paste hasil draw di sini...">
+</textarea>
+
+<select id="modePrediction">
+    <option value="original">Original</option>
+    <option value="mirror">Mirror</option>
+    <option value="both">Original + Mirror</option>
+</select>
+
+<button id="analyzeBtn">
+    🔍 ANALYZE
+</button>
+
+<button id="copyBtn">
+📋 Copy Hasil
+</button>
+
+<button id="copybbfs">
+📋 Copy BBFS
+</button>
+
+<button id="copy2d">
+📋 Copy 2D
+</button>
+<button id="copy3d">
+📋 Copy 3D
+</button>
+
+<button id="copy4d">
+📋 Copy 4D
+</button>
+
+<div class="card">
+
+<h2>📊 HASIL ANALISIS</h2>
+
+<div id="result">
+
+Belum ada analisis.
+
+</div>
+
+</div>
+
+<footer>
+
+© Cici
+
+</footer>
+
+</div>
+
+<script src="parser.js"></script>
+<script src="generator.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>
