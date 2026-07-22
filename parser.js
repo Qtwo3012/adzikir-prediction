@@ -1,40 +1,120 @@
 // ======================================
-// UNIVERSAL AI SMART PARSER V7
+// PARSER ENGINE V4.1
 // ======================================
 
-function parseDataset(text){
+// ----------------------
+// Bersihkan Text
+// ----------------------
+function cleanText(text){
 
-    text = text
+    return text
         .replace(/\u00A0/g," ")
         .replace(/\u200B/g,"")
         .replace(/\r/g,"");
 
-    const lines = text
-    .replace(/\t/g, "\n")
-    .split("\n")
-    .map(x => x.trim())
-    .filter(x => x !== "");
+}
+
+// ----------------------
+// Pecah Baris
+// ----------------------
+function splitLines(text){
+
+    return text
+        .replace(/\t/g,"\n")
+        .split("\n")
+        .map(x=>x.trim())
+        .filter(x=>x!="");
+
+}
+
+// ----------------------
+// Format : 1st: 1234
+// ----------------------
+function parseFirstFormat(line){
+
+    const m = line.match(/1st\s*:?\s*(\d{4})/i);
+
+    if(m){
+        return m[1];
+    }
+
+    return null;
+
+}
+
+// ----------------------
+// Format :
+// BKMG-1234
+// 5678
+// ----------------------
+function parseCodeFormat(lines,index){
+
+    if(
+
+        /^[A-Z]{2,10}-\d{4}$/i.test(lines[index]) &&
+
+        index+1<lines.length &&
+
+        /^\d{4}$/.test(lines[index+1])
+
+    ){
+
+        return lines[index+1];
+
+    }
+
+    return null;
+
+}
+
+// ----------------------
+// Hapus Duplikat
+// ----------------------
+function uniqueDraw(draws){
+
+    return [...new Set(draws)];
+
+}
+
+// ======================================
+// MAIN PARSER
+// ======================================
+
+function parseDataset(text){
+
+    text = cleanText(text);
+
+    const lines = splitLines(text);
 
     let draws = [];
 
-    for(let i = 0; i < lines.length; i++){
+    for(let i=0;i<lines.length;i++){
 
-        const line = lines[i];
+        let result = parseFirstFormat(lines[i]);
 
-        // ==========================
-        // FORMAT : 1st: 1234
-        // ==========================
-        const m = line.match(/1st\s*:?\s*(\d{4})/i);
+        if(result){
 
-        if(m){
-            draws.push(m[1]);
+            draws.push(result);
+
             continue;
+
         }
 
-        // ==========================
-        // FORMAT :
-        // KODE-XXXX
-        // 1234
+        result = parseCodeFormat(lines,i);
+
+        if(result){
+
+            draws.push(result);
+
+            continue;
+
+        }
+
+    }
+
+    return uniqueDraw(draws);
+
+}        // 1234
         // ==========================
         if(
             /^[A-Z]{2,10}-\d{4}$/i.test(line) &&
